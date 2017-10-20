@@ -1,0 +1,22 @@
+<html>
+<body>
+{{ 'Hola'|trans ~ ' ' ~ attribute(_context, 'name-name')|upper }}
+{#{{ dump(_context) }}#}
+{% set variable = 15 %}
+{{ variable }}
+
+<ul>
+    {% for number in [1, 4, 6, 7, 8] %}
+        <li>{{ number }} - {{ loop.index0 }} - {{ loop.revindex0 }} - {{ loop.last ?: 'No existe' }}</li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for number in [] %}
+            <li>{{ number }} - {{ loop.index0 }} - {{ loop.revindex0 }} - {{ loop.last ?: 'No existe' }}</li>
+        {% else %}
+        <li>{{ 'No existen números'|trans|title }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
