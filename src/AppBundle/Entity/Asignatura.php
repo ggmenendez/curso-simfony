@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Asignatura
@@ -27,6 +28,12 @@ class Asignatura
      * @ORM\Column(name="codigo", type="integer", unique=true)
      */
     private $codigo;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Grado", inversedBy="asignaturas")
+     * @ORM\JoinColumn(name="grado_id", referencedColumnName="id")
+     */
+    private $grado;
 
     /**
      * @var string
@@ -48,8 +55,24 @@ class Asignatura
      * @ORM\Column(name="credects", type="integer", nullable=true)
      */
     private $credects;
-
-
+    
+    /**
+     * 
+     * @ORM\ManyToMany(targetEntity="Alumno", inversedBy="asignaturas")
+     * @ORM\JoinTable(name="alumnos_asignaturas")
+     */
+    private $alumnos;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Nota", mappedBy="asignatura")
+     */
+    private $notas;
+            
+    public function __construct()
+    {
+        $this->alumnos = new ArrayCollection();
+    }        
+    
     /**
      * Get id
      *
@@ -154,6 +177,37 @@ class Asignatura
     public function getCredects()
     {
         return $this->credects;
+    }
+    
+    function getGrado() {
+      return $this->grado;
+    }
+
+    function setGrado($grado) {
+      $this->grado = $grado;
+      return $this;
+    }
+    
+    function getAlumnos() {
+      return $this->alumnos;
+    }
+
+    function getNotas() {
+      return $this->notas;
+    }
+
+    function setAlumnos($alumnos) {
+      $this->alumnos = $alumnos;
+      return $this;
+    }
+
+    function setNotas($notas) {
+      $this->notas = $notas;
+      return $this;
+    }
+
+    public function __toString() {
+      return $this->nombre;
     }
 }
 

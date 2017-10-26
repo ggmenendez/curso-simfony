@@ -1,0 +1,5 @@
+user_edit:
+  path:  /user/edit/{id}
+  defaults: { _controller: AppBundle:Routing:edit }
+  requirements:
+    id: '\d+'

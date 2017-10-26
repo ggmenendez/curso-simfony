@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class PublicController extends Controller
 {
     /**
-     * @Route("/home")
+     * @Route("/home", name="public_home")
      */
     public function homeAction()
     {
@@ -18,7 +18,7 @@ class PublicController extends Controller
     }
 
     /**
-     * @Route("/login")
+     * @Route("/login", name="public_login")
      */
     public function loginAction()
     {

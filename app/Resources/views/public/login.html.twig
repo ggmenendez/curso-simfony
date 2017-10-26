@@ -1,1 +1,13 @@
-<html><body>Hello </body></html>
+{% extends 'public.html.twig' %}
+{% block title %}Login{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    <h1>{{ 'Acceso'|trans }}</h1>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        var title = $("h1");
+        title.css("color", "green");
+    </script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Notas{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+
+    <h3>Alumno</h3>
+    <h5>{{ student.nombre ~ ' ' ~ student.apellidos }}</h5>
+    <br><br>
+
+    <h3>Listado de Notas</h3>
+    {% if student.notas|length == 0 %}
+        <h2>{{ 'No hay asignaturas en este plan'|trans }}</h2>
+    {% else %}
+        <table>
+            <tr>
+                <th>{{ 'asignatura'|trans }}</th>
+                <th>{{ 'num_conv'|trans }}</th>
+                <th>{{ 'fecha_conv'|trans }}</th>
+                <th>{{ 'nota'|trans }}</th>
+            </tr>
+            {% for qua in student.notas %}
+                {% if loop.index0 % 2 == 0 %}
+                    <tr class="even-index">
+                {% else %}
+                    <tr class="odd-index">
+                {% endif %}
+                <td>{{ qua.asignatura.nombre }}</td>
+                <td>{{ qua.nConvocatoria }}</td>
+                <td>{{ qua.fecha | date }}</td>
+                <td>{{ qua.nota }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}
+{% block javascript %}{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Alumno;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,5 +42,23 @@ class DefaultController extends Controller
         $subjects = $manager->get('01AE');
         // replace this example code with whatever you need
         return $this->render('exercises/exercise1.html.twig', ['subjects' => $subjects]);
+    }
+
+    public function ejercicioNotasAction(Request $request, int $id)
+    {
+//        $em = $this->getDoctrine()->getManager();
+        $sr = $this->getDoctrine()->getRepository(Alumno::class);
+        $student = $sr->find($id);
+
+        if (!$student) {
+            throw $this->createNotFoundException(
+                'No se ha encontrado ningún estudiante con el id '.$id
+            );
+        } else {
+            return $this->render('exercises/qualifications.twig',
+                [
+                    'student' => $student
+                ]);
+        }
     }
 }

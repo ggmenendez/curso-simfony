@@ -1,0 +1,12 @@
+user_edit:
+  path:  /user/edit/{id}
+  defaults: { _controller: AppBundle:Routing:edit }
+  requirements:
+    id: '\d+'
+
+
+ejercicios_alumnos:
+  path: /ejercicios/alumnos/{id}/notas
+  defaults: { _controller: AppBundle:Default:ejercicioNotas }
+  requirements:
+    id: '\d+'
