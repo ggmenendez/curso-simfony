@@ -1,7 +1,17 @@
-{% extends "::base.html.twig" %}
-
-{% block title %}AppBundle:Grados:new{% endblock %}
+{% extends "::public.html.twig" %}
 
 {% block body %}
-<h1>Welcome to the Grados:new page</h1>
+    <h1>Nuevo Grado</h1>
+
+    <div class="formulario">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    {% if data %}
+        <div>
+            Has creado el grado {{ data.nombre }} con identificador {{ data.id }}
+        </div>
+    {% endif %}
 {% endblock %}

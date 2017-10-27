@@ -28,3 +28,21 @@ ejercicios_form_asignaturas_delete:
   defaults: { _controller: AppBundle:Asignaturas:delete }
   requirements:
     id: '\d+'
+
+ejercicios_form_grados_index:
+  path: /grados/
+  defaults: { _controller: AppBundle:Grados:index }
+
+ejercicios_form_grados_new:
+  path: /grados/new
+  defaults: { _controller: AppBundle:Grados:new }
+
+ejercicios_form_grados_edit:
+  path: /grados/edit/{id}
+  defaults: { _controller: AppBundle:Grados:edit, id: null }
+
+ejercicios_form_grados_delete:
+  path: /grados/delete/{id}
+  defaults: { _controller: AppBundle:Grados:delete }
+  requirements:
+    id: '\d+'

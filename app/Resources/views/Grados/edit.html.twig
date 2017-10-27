@@ -1,7 +1,11 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Grados:edit{% endblock %}
-
 {% block body %}
-<h1>Welcome to the Grados:edit page</h1>
+    <h1>Editar Grado</h1>
+
+    <div class="formulario">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

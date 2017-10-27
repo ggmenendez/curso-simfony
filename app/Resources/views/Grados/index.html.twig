@@ -1,7 +1,33 @@
-{% extends "::base.html.twig" %}
+{% extends "::public.html.twig" %}
 
-{% block title %}AppBundle:Grados:index{% endblock %}
+{% block stylesheets %}
+<style>
+    a { color: white !important; }
+</style>
+{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Grados:index page</h1>
+    <br>
+    <a class="btn btn-primary" role="button" href="{{ path('ejercicios_form_grados_new') }}">Añadir</a>
+    <br><br>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Grado</th>
+            <th>Acciones</th>
+        </tr>
+        {% for grade in grades %}
+        <tr>
+            <td>{{ grade.id }}</td>
+            <td>{{ grade.nombre }}</td>
+            <td>
+                <a class="btn btn-warning" role="button" href="{{ url('ejercicios_form_grados_edit', {id: grade.id}) }}">Editar</a>
+                <a class="btn btn-danger" role="button" href="{{ url('ejercicios_form_grados_delete', {id: grade.id}) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <ul>
+
+    </ul>
 {% endblock %}
