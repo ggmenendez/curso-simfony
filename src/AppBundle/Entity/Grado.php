@@ -100,7 +100,5 @@ class Grado
     public function __toString() {
       return $this->nombre;
     }
-
-
 }
 

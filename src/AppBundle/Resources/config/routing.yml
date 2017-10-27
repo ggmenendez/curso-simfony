@@ -1,0 +1,16 @@
+
+index:
+    path:     /asignaturas
+    defaults: { _controller: AppBundle:AsignaturasController:index }
+
+new:
+    path:     /new
+    defaults: { _controller: AppBundle:AsignaturasController:new }
+
+edit:
+    path:     /edit
+    defaults: { _controller: AppBundle:AsignaturasController:edit }
+
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: AppBundle:AsignaturasController:delete }

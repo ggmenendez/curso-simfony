@@ -10,3 +10,21 @@ ejercicios_alumnos:
   defaults: { _controller: AppBundle:Default:ejercicioNotas }
   requirements:
     id: '\d+'
+
+ejercicios_form_asignaturas_index:
+  path: /asignaturas/
+  defaults: { _controller: AppBundle:Asignaturas:index }
+
+ejercicios_form_asignaturas_new:
+  path: /asignaturas/new
+  defaults: { _controller: AppBundle:Asignaturas:new }
+
+ejercicios_form_asignaturas_edit:
+  path: /asignaturas/edit
+  defaults: { _controller: AppBundle:Asignaturas:edit }
+
+ejercicios_form_asignaturas_delete:
+  path: /asignaturas/delete/{id}
+  defaults: { _controller: AppBundle:Asignaturas:delete }
+  requirements:
+    id: '\d+'

@@ -1,6 +1,3 @@
 main:
   resource: routing_main.yml
 
-#app:
-#    resource: '@AppBundle/Controller/'
-#    type: annotation
